@@ -44,7 +44,7 @@ export const darkTheme: Theme = {
 };
 
 
- const GlobalStyle: GlobalStyleComponent<
+const GlobalStyle: GlobalStyleComponent<
   {},
   DefaultTheme
 > = createGlobalStyle`
@@ -53,6 +53,40 @@ export const darkTheme: Theme = {
   }
   body {
     background-color: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.colors.dark};
+    transition: all 0.50s linear;
+      box-sizing: border-box;
+  }
+  :scroll {
+    background: ${(props) => props.theme.colors.light};
+    color: ${(props) => props.theme.colors.dark};
+    transition: all 0.50s linear;
+  
+  }
+  ::before,
+  ::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    box-shadow: inset 0 0 5px ${(props) => props.theme.colors.yellow};
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(${(props) => props.theme.colors.gray}, ${(
+  props
+) => props.theme.colors.lightGray});
+    border-radius: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(${(props) => props.theme.colors.lightGray}, ${(
+  props
+) => props.theme.colors.yellow});
   }
 `;
 
